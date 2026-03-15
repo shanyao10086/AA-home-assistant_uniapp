@@ -1,0 +1,59 @@
+
+.content{
+    width: 660rpx;
+}
+.topContainer{
+    margin: 40rpx 0 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.dateCard{
+    height: 240rpx;
+    width: 240rpx;
+}
+.listCard{
+    height: 240rpx;
+    width: 420rpx;
+}
+.messageBoard{
+    padding: 20rpx;
+    height: 400rpx;
+}
+.messageTitle{
+    font-size: 36rpx;
+    font-weight: 500;
+    color: #8CA9AD;
+    margin-bottom: 20rpx;
+}
+.messageItem{
+    border: 1px solid #000000;
+    height: 80rpx;
+    margin: 20rpx 0;
+}
+.messageItem .messageContent{
+    max-width: 300rpx;
+    font-size: 30rpx;
+    font-weight: 480;
+}
+.messageInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.messageInfo .messageTime{
+    margin: 0 20rpx 0 50rpx;
+    display:inline-block;
+    text-align: right;
+    font-size: 16rpx;
+    font-weight: 360;
+    color: #b7c5c7;
+}
+.messageInfo .messageFrom{
+    display:inline-block;
+    text-align: right;
+    font-size: 20rpx;
+    font-weight: 360;
+    color: #b7c5c7;
+}
+

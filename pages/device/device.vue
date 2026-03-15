@@ -35,7 +35,7 @@ export default {
 			statusBarHeight: 0,
 			// 导航栏高度
 			navBarHeight: 82+11,
-      deviceList: [
+      		deviceList: [
 				{ name: "客厅智能灯" },
 				{ name: "卧室空调" },
 				{ name: "温湿度传感" },
@@ -53,11 +53,7 @@ export default {
 				{ name: "温湿度传感" },
 				{ name: "自动窗帘" },
 				{ name: "大门" }
-			],
-			userInfo: {
-				username: "未登录"
-			},
-			isLogin: false
+			]
 		};
 	},
 	onShow(){
@@ -83,7 +79,7 @@ export default {
 <style>
 	.devList{
 		width: 660rpx;
-		margin-top: 70rpx;
+		margin-top: 50rpx;
 	}
 	.devItem{
 		width: 100%;
@@ -95,21 +91,21 @@ export default {
 		border-radius: 20rpx;
 		display: flex;
 		align-items: center;
-		text{
-			margin-left: 40rpx;
-			font-size: 36rpx;
-			font-weight: 500;
-		}
+	}
+	.devItem text{
+		margin-left: 40rpx;
+		font-size: 36rpx;
+		font-weight: 500;
 	}
   .addButton{
 		position: fixed;
-    bottom: 160rpx;
-    right: 70rpx;
-    image{
+		bottom: 160rpx;
+		right: 70rpx;
+	}
+    .addButton image{
       width: 100rpx;
       height: 100rpx;
     }
-	}
   .footer-space {
 	  height: 250rpx; /* 避免被 add按钮 遮挡 */
 	}

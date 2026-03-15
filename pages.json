@@ -1,17 +1,19 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ 
 		{
-			
+			"path": "pages/personpage/personpage"
+		},
+		{
 			"path": "pages/familypage/familypage"
 		},
 		{
-			"path": "pages/login/login"
+			"path": "pages/diet/diet"
+		},
+		{
+			"path": "pages/sport/sport"
 		},
 		{
 			"path": "pages/health/health"
-		},
-		{
-			"path": "pages/personpage/personpage"
 		},
 		{
 			"path": "pages/device/device"
@@ -21,6 +23,12 @@
 		},
 		{
 			"path": "pages/test_pages/test_pages"
+		},
+		{
+			"path": "pages/settings/settings"
+		},
+		{
+			"path": "pages/about/about"
 		}
 	],
 	"globalStyle": {
@@ -28,21 +36,22 @@
 	},
 	"tabBar": {
 		"backgroundColor": "#8CA9AD",
+		/* "iconWidth": "64rpx", */
 		"list": [
 			{
 				"pagePath": "pages/device/device",
-				"iconPath": "/static/device.png",
-				"selectedIconPath": "/static/devicesel.png"
+				"iconPath": "/static/icons/device_tabbar.png",
+				"selectedIconPath": "/static/icons/selected.png"
 			},
 			{
 				"pagePath": "pages/familypage/familypage",
-				"iconPath": "/static/home.png",
-				"selectedIconPath": "/static/homesel.png"
+				"iconPath": "/static/icons/home_tabbar.png",
+				"selectedIconPath": "/static/icons/selected.png"
 			},
 			{
 				"pagePath": "pages/personpage/personpage",
-				"iconPath": "/static/person.png",
-				"selectedIconPath": "/static/personsel.png"
+				"iconPath": "/static/icons/person_tabbar.png",
+				"selectedIconPath": "/static/icons/selected.png"
 			}
 		]
 	}

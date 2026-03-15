@@ -1,0 +1,212 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ... （保留之前的样式，仅新增以下部分）... */
+.history-list.data-v-7cd1e374 {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.history-item.data-v-7cd1e374 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.history-item.data-v-7cd1e374:last-child {
+  border-bottom: none;
+}
+.history-value.data-v-7cd1e374 {
+  color: #002F6C;
+  font-weight: bold;
+}
+.health-page.data-v-7cd1e374 {
+  padding: 0 30rpx;
+  min-height: 100vh;
+  background-color: #E5F4FF;
+}
+.status-bar.data-v-7cd1e374 {
+  height: 25px;
+}
+.header.data-v-7cd1e374 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  border-radius: 0 0 30rpx 30rpx;
+  margin-bottom: 40rpx;
+}
+.page-title.data-v-7cd1e374 {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+/* 数据概览卡片 */
+.summary-cards.data-v-7cd1e374 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.card.data-v-7cd1e374 {
+  width: 48%;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.label.data-v-7cd1e374 {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+.value.data-v-7cd1e374 {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #002F6C;
+  margin-bottom: 20rpx;
+}
+.unit.data-v-7cd1e374 {
+  font-size: 32rpx;
+  font-weight: normal;
+}
+.progress-bg.data-v-7cd1e374 {
+  width: 100%;
+  height: 12rpx;
+  background: #E0E0E0;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.progress.data-v-7cd1e374 {
+  height: 100%;
+  background: #002F6C;
+  border-radius: 6rpx;
+}
+.progress.sleep.data-v-7cd1e374 {
+  background: #4A90E2; /* 睡眠用浅蓝色区分 */
+}
+.goal.data-v-7cd1e374 {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 图表与建议 */
+.section-title.data-v-7cd1e374 {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #002F6C;
+  margin: 20rpx 0 30rpx;
+}
+.chart-container.data-v-7cd1e374 {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.advice-list.data-v-7cd1e374 {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.advice-item.data-v-7cd1e374 {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.advice-item.data-v-7cd1e374:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.advice-text.data-v-7cd1e374 {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}
+.footer-space.data-v-7cd1e374 {
+  height: 120rpx;
+}
+

@@ -4,8 +4,11 @@
         globalData: {
             isLogin: false,
             userInfo: {
-                username: "未登录"
-            }
+				userid: null,
+                username: null
+            },
+			baseUrl: "http://192.168.35.112:5000",
+			accessToken: null
         },
 		onLaunch: function(options) {
 			console.log('App Launch')
@@ -17,6 +20,9 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
+		},
+		methods:{
+			
 		}
 	}
 </script>
@@ -46,6 +52,11 @@
 		justify-content: center;
 		align-items: center;
 	}
+	.navBarTitle{
+		color: #FBF2E3;
+		font-size: 36rpx;
+		font-weight: 500;
+	}
 	.mainbody{
 		width: 660rpx;
         background-color: #FBF2E3;
@@ -59,7 +70,36 @@
         top: 20rpx;
         left: 15rpx;
     }
-	.bigbutton{
+	.escimg{
+		width: 60rpx;
+		height: 60rpx;
+	}
+	.card-border{
+		border-bottom: 6rpx solid #8CA9AD; /* 下边框 */
+		border-right: 3rpx solid #8CA9AD; /* 右边框 */
+		border-radius: 20rpx;
+	}
+	.funcList{
+		width: 660rpx;
+		margin-top: 60rpx;
+	}
+	.funcItem{
+		width: 100%;
+		height: 90rpx;
+		margin-top: 10rpx;
+		color: #8CA9AD;
+		border-bottom: 6rpx solid #8CA9AD;
+		border-right: 3rpx solid #8CA9AD;
+		border-radius: 20rpx;
+		display: flex;
+		align-items: center;
+		text{
+			margin-left: 30rpx;
+			font-size: 36rpx;
+			font-weight: 480;
+		}
+	}
+	.big-button{
 		margin-top: 40rpx;
 		height: 80rpx;
 		display: flex;
