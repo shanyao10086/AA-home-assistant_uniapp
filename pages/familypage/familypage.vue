@@ -24,7 +24,7 @@
           <view class="month">{{ Today.month }}月</view>
         </view>
         <view class="listCard">
-          <view class="listTitle">今日待办</view>
+          <view class="listTitle">今日日程</view>
           <view v-for="item in todoList" :key="item.id" class="listItem">
             <view class="itemContent">{{ item.content }}</view>
           </view>
