@@ -1,0 +1,49 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			
+			"path": "pages/familypage/familypage"
+		},
+		{
+			"path": "pages/login/login"
+		},
+		{
+			"path": "pages/health/health"
+		},
+		{
+			"path": "pages/personpage/personpage"
+		},
+		{
+			"path": "pages/device/device"
+		},
+		{
+			"path": "pages/massagepage/massagepage"
+		},
+		{
+			"path": "pages/test_pages/test_pages"
+		}
+	],
+	"globalStyle": {
+		"navigationStyle": "custom"
+	},
+	"tabBar": {
+		"backgroundColor": "#8CA9AD",
+		"list": [
+			{
+				"pagePath": "pages/device/device",
+				"iconPath": "/static/device.png",
+				"selectedIconPath": "/static/devicesel.png"
+			},
+			{
+				"pagePath": "pages/familypage/familypage",
+				"iconPath": "/static/home.png",
+				"selectedIconPath": "/static/homesel.png"
+			},
+			{
+				"pagePath": "pages/personpage/personpage",
+				"iconPath": "/static/person.png",
+				"selectedIconPath": "/static/personsel.png"
+			}
+		]
+	}
+}
