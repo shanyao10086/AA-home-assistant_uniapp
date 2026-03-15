@@ -93,31 +93,31 @@
 		border-radius: 20rpx;
 		display: flex;
 		align-items: center;
-		text{
-			margin-left: 30rpx;
-			font-size: 36rpx;
-			font-weight: 480;
-		}
+	}
+	.funcItem text{
+		margin-left: 30rpx;
+		font-size: 36rpx;
+		font-weight: 480;
 	}
 	.big-button{
 		margin-top: 40rpx;
 		height: 80rpx;
 		display: flex;
 		justify-content: center;
-		button{
-			color: #FBF2E3;
-			background-color: #8CA9AD;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 80rpx;
-			width: 660rpx;
-			font-size: 40rpx;
-			border: none;
-			border-radius: 20rpx;
-			padding: 10rpx 40rpx;
-		};
 	}
+	.big-button	button{
+		color: #FBF2E3;
+		background-color: #8CA9AD;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 80rpx;
+		width: 660rpx;
+		font-size: 40rpx;
+		border: none;
+		border-radius: 20rpx;
+		padding: 10rpx 40rpx;
+	};
 	.footer-space {
 	  height: 120rpx; /* 避免被 tabBar 遮挡 */
 	}
