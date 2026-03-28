@@ -3,7 +3,7 @@
 		<!-- 自定义导航栏 -->
 		<view class="navBarBox">
 			<!-- 状态栏占位 -->
-			<view class="statusBar" :style="{ paddingTop: statusBarHeight + 'px' }"></view>
+			<view class="statusBar" :style="{ paddingTop: statusBarHeight + 'px' }"style="background-color: #8CA9AD;"></view>
 			<!-- 真正的导航栏内容 -->
 			<view class="navBar">
 				<view style="color: #FBF2E3;font-size: 36rpx;font-weight: 500;">

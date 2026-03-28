@@ -3,7 +3,7 @@
 		<!-- 自定义导航栏 -->
 		<view class="navBarBox">
 			<!-- 状态栏占位 -->
-			<view class="statusBar" :style="{ paddingTop: statusBarHeight + 'px' }"></view>
+			<view class="statusBar" :style="{ paddingTop: statusBarHeight + 'px' }" style="background-color: #8CA9AD;"></view>
 			<!-- 真正的导航栏内容 -->
 			<view class="navBar">
 				<view class="navBarTitle">
@@ -39,7 +39,7 @@
 		</view>
 
 		<view class="funcList">
-			<view class="funcItem">
+			<view class="funcItem" @click="toDiet()">
 				<text>饮食记录</text>
 			</view>
 			<view class="funcItem" @click="toSport()">
@@ -372,13 +372,16 @@ export default {
 		},
 		toSport(){
 			uni.navigateTo({ url: '/pages/sport/sport' });
-		},
-		toSettings(){
-			uni.navigateTo({ url: '/pages/settings/settings' });
-		},
-		toAbout(){
-			uni.navigateTo({ url: '/pages/about/about' });
-		},
+			},
+			toDiet(){
+				uni.navigateTo({ url: '/pages/diet/diet' });
+			},
+			toSettings(){
+				uni.navigateTo({ url: '/pages/settings/settings' });
+			},
+			toAbout(){
+				uni.navigateTo({ url: '/pages/about/about' });
+			},
 		debugshow(){
 			console.log("userInfo:", this.userInfo);
 			console.log("isLogin:", this.isLogin);
