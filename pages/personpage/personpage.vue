@@ -22,7 +22,7 @@
 					@click="updataAvatar()"				
 					/>
 					<view class="userName" @click="changeName()">
-						<text>{{ userInfo.username || userInfo.nickName || '用户' }}</text>
+						<text>{{ userInfo.nickname }}</text>
 					</view>	
 				</view>
 				
@@ -55,6 +55,10 @@
 				<text>关于</text>
 			</view>
 		</view>
+		<!-- 底部按钮区域 -->
+		<view class="big-button">
+			<button @click="testJwtConnection()">连接测试</button>
+		</view>
 		<view class="footer-space"></view>
 	</view>
 </template>
@@ -85,6 +89,82 @@ export default {
 		this.statusBarHeight = uni.getSystemInfoSync()['statusBarHeight'];
 	},
 	methods: {
+		
+
+    /**
+     * 测试 JWT 接口连通性
+     * 调用后端：GET /users/jwt_test
+     */
+    testJwtConnection() {
+      // 1. 从本地存储获取 token
+      // 注意：这里 key 必须和登录成功时 uni.setStorageSync('access_token', ...) 的 key 一致
+      const token = uni.getStorageSync('access_token');
+
+      if (!token) {
+          uni.showToast({
+              title: '未找到 Token，请先登录',
+              icon: 'none'
+          });
+          console.error('❌ 测试失败：本地存储中未找到 access_token');
+          return;
+      }
+
+      console.log('🚀 开始测试 JWT 接口...');
+      console.log('🔑 使用 Token:', token.substring(0, 20) + '...');
+
+      // 2. 发起请求
+      const baseUrl = getApp().globalData.baseUrl; // 后端地址
+      const apiUrl = `${baseUrl}/users/jwt_test`; // 路由路径
+
+      uni.request({
+          url: apiUrl,
+          method: 'GET',
+          header: {
+              'Content-Type': 'application/json',
+              // ✅ 关键：JWT 标准格式 "Bearer <token>"
+              'Authorization': `Bearer ${token}` 
+          },
+          success: (res) => {
+              console.log('📡 原始响应:', res);
+
+              if (res.statusCode === 200) {
+                  const data = res.data;
+                  console.log('✅ 测试成功！后端返回数据:', data);
+                  
+                  uni.showModal({
+                      title: 'JWT 测试成功',
+                      // 对应后端 return jsonify({'message': user_id})
+                      content: `后端识别到的用户 ID: ${data.message}`, 
+                      showCancel: false
+                  });
+              } else {
+                  console.error('❌ 请求失败，状态码:', res.statusCode);
+                  console.error('错误详情:', res.data);
+                  
+                  let errMsg = '请求失败';
+                  if (res.statusCode === 401) {
+                      errMsg = 'Token 无效或已过期 (401)';
+                  } else if (res.statusCode === 404) {
+                      errMsg = '接口地址不存在 (404)，请检查 URL';
+                  } else if (res.data && res.data.msg) {
+                      errMsg = res.data.msg;
+                  }
+
+                  uni.showToast({
+                      title: errMsg,
+                      icon: 'none'
+                  });
+              }
+          },
+          fail: (err) => {
+              console.error('❌ 网络请求失败:', err);
+              uni.showToast({
+                  title: '网络错误或服务器未启动',
+                  icon: 'none'
+              });
+          }
+      });
+    },
 		// 检查登录状态
 		checkLoginStatus() {
 			// 从本地存储获取用户信息
@@ -360,6 +440,12 @@ export default {
 	.userInfo[v-else]:active .login-text {
 		background-color: rgba(140, 169, 173, 0.1);
 		transform: scale(0.95);
+	}
+	/* 底部按钮区域样式 */
+	.bottomActions {
+		margin: 40rpx 0;
+		display: flex;
+		justify-content: center;
 	}
 
 </style>

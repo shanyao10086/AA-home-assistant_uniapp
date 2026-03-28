@@ -7,7 +7,7 @@
 				userid: null,
                 username: null
             },
-			baseUrl: "http://192.168.35.112:5000",
+			baseUrl: "http://192.168.17.112:5000",
 			accessToken: null
         },
 		onLaunch: function(options) {
@@ -121,5 +121,7 @@
 	.footer-space {
 	  height: 120rpx; /* 避免被 tabBar 遮挡 */
 	}
+
+	
 	
 </style>

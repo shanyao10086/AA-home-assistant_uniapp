@@ -97,7 +97,7 @@ export default {
 		font-size: 36rpx;
 		font-weight: 500;
 	}
-  .addButton{
+  	.addButton{
 		position: fixed;
 		bottom: 160rpx;
 		right: 70rpx;
@@ -106,7 +106,7 @@ export default {
       width: 100rpx;
       height: 100rpx;
     }
-  .footer-space {
+  	.footer-space {
 	  height: 250rpx; /* 避免被 add按钮 遮挡 */
 	}
 </style>
