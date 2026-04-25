@@ -6,7 +6,8 @@
 			<view class="statusBar" :style="{ paddingTop: statusBarHeight + 'px' }" style="background-color: #8CA9AD;"></view>
 			<!-- 真正的导航栏内容 -->
 			<view class="navBar">
-				<view class="escp" @click="$router.back()">
+				<!-- 返回按钮 -->
+				<view class="escp" @click="goBack()">
 					<image class="escimg"
 					src="/static/icons/向左.png"></image>
 				</view>
@@ -17,10 +18,7 @@
 		
 		<view class="funcList">
 			<view class="funcItem">
-				<text>注销账号</text>
-			</view>
-			<view class="funcItem">
-				<text>修改密码</text>
+				<text>网关配置</text>
 			</view>
 		</view>
 		<view class="bigbutton">
@@ -50,6 +48,13 @@ export default{
 		this.statusBarHeight = uni.getSystemInfoSync()['statusBarHeight'];
 	},
 	methods: {
+		// 返回上一页
+		goBack() {
+			uni.navigateBack({
+				delta: 1
+			});
+		},
+
 		// 注销账号
 		logout(){
 			// 获取当前登录用户信息
@@ -174,4 +179,29 @@ export default{
 		align-items: center;
 	}
 	
+	.funcList {
+		width: 100%;
+		padding: 40rpx 20rpx;
+		box-sizing: border-box;
+	}
+	
+	.funcItem {
+		width: 100%;
+		padding: 20rpx;
+		margin-bottom: 20rpx;
+		border-radius: 10rpx;
+		text-align: center;
+	}
+	
+	.bigbutton {
+		width: 90%;
+		margin: 20rpx auto;
+	}
+	
+	button {
+		width: 100%;
+		background-color: #8CA9AD;
+		color: white;
+		border-radius: 10rpx;
+	}
 </style>

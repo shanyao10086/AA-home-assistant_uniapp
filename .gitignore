@@ -210,3 +210,6 @@ coverage/
 # System files
 .DS_Store
 Thumbs.db
+
+# API files
+api.md

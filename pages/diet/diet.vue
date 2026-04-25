@@ -17,33 +17,33 @@
 		<view class="content">
 			<!-- 今日饮食总结 -->
 			<view class="summary-card">
-			<view class="summary-title">今日饮食总结</view>
-			<view class="summary-info" v-if="dailySummary">
-				<view class="summary-item">
-					<text class="label">总热量:</text>
-					<text class="value">{{ dailySummary.total_calories }} / {{ dailySummary.recommended_calories }} 千卡</text>
+				<view class="summary-title">今日饮食总结</view>
+				<view class="summary-info" v-if="dailySummary">
+					<view class="summary-item">
+						<text class="label">总热量:</text>
+						<text class="value">{{ dailySummary.total_calories }} / {{ dailySummary.recommended_calories }} 千卡</text>
+					</view>
+					<view class="summary-item">
+						<text class="label">蛋白质:</text>
+						<text class="value">{{ dailySummary.total_protein }} 克</text>
+					</view>
+					<view class="summary-item">
+						<text class="label">碳水化合物:</text>
+						<text class="value">{{ dailySummary.total_carbohydrates }} 克</text>
+					</view>
+					<view class="summary-item">
+						<text class="label">脂肪:</text>
+						<text class="value">{{ dailySummary.total_fat }} 克</text>
+					</view>
 				</view>
-				<view class="summary-item">
-					<text class="label">蛋白质:</text>
-					<text class="value">{{ dailySummary.total_protein }} 克</text>
-				</view>
-				<view class="summary-item">
-					<text class="label">碳水化合物:</text>
-					<text class="value">{{ dailySummary.total_carbohydrates }} 克</text>
-				</view>
-				<view class="summary-item">
-					<text class="label">脂肪:</text>
-					<text class="value">{{ dailySummary.total_fat }} 克</text>
+				<view class="summary-info" v-else>
+					<text>暂无今日饮食记录</text>
 				</view>
 			</view>
-			<view class="summary-info" v-else>
-				<text>暂无今日饮食记录</text>
-			</view>
-		</view>
-		
-		
-		<!-- 添加饮食记录按钮 -->
-		<button class="add-record-btn" @click="showAddRecordForm = true">+ 添加饮食记录</button>
+			
+			
+			<!-- 添加饮食记录按钮 -->
+			<button class="add-record-btn" @click="showAddRecordForm = true">+ 添加饮食记录</button>
 			
 			<!-- 饮食记录列表 -->
 			<view class="records-section">
@@ -138,15 +138,17 @@
 		<!-- AI饮食建议卡片 -->
 		<view class="suggestion-card">
 			<view class="suggestion-header">
-				<view class="suggestion-title">饮食建议</view><br>
-				<view class="suggestion-period-selector">
-					<picker @change="onSuggestionPeriodChange" :value="selectedSuggestionPeriodIndex" :range="suggestionPeriodOptions" range-key="label">
-						<view class="picker">{{ suggestionPeriodOptions[selectedSuggestionPeriodIndex].label }}</view>
-					</picker>
+				<view class="suggestion-title">饮食建议</view>
+				<view class="suggestion-controls">
+					<view class="suggestion-period-selector">
+						<picker @change="onSuggestionPeriodChange" :value="selectedSuggestionPeriodIndex" :range="suggestionPeriodOptions" range-key="label">
+							<view class="picker">{{ suggestionPeriodOptions[selectedSuggestionPeriodIndex].label }}</view>
+						</picker>
+					</view>
+					<button class="refresh-suggestion-btn" @click="getAISuggestion" :disabled="loadingSuggestion">
+						{{ loadingSuggestion ? '获取中...' : '刷新' }}
+					</button>
 				</view>
-				<button class="refresh-suggestion-btn" @click="getAISuggestion" :disabled="loadingSuggestion">
-					{{ loadingSuggestion ? '获取中...' : '刷新' }}
-				</button>
 			</view>
 			<view v-if="loadingSuggestion" class="suggestion-loading">正在获取智能饮食建议...</view>
 			<view v-else-if="suggestionData" class="suggestion-content">
@@ -749,6 +751,12 @@ export default {
 	margin-bottom: 20rpx;
 }
 
+.suggestion-controls {
+	display: flex;
+	align-items: center;
+	gap: 15rpx;
+}
+
 .suggestion-title {
 	font-size: 32rpx;
 	font-weight: bold;
@@ -861,10 +869,13 @@ export default {
 	border-radius: 20rpx;
 	padding: 30rpx;
 	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .section-header {
 	display: flex;
+	border: 1rpx solid red;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20rpx;
@@ -874,6 +885,7 @@ export default {
 	font-size: 32rpx;
 	font-weight: bold;
 	color: #333;
+	flex: 1;
 }
 
 .refresh-btn {

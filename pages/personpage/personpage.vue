@@ -130,13 +130,7 @@ export default {
               if (res.statusCode === 200) {
                   const data = res.data;
                   console.log('✅ 测试成功！后端返回数据:', data);
-                  
-                  uni.showModal({
-                      title: 'JWT 测试成功',
-                      // 对应后端 return jsonify({'message': user_id})
-                      content: `后端识别到的用户 ID: ${data.message}`, 
-                      showCancel: false
-                  });
+				  console.log('后端识别到的用户 ID:', data.message);
               } else {
                   console.error('❌ 请求失败，状态码:', res.statusCode);
                   console.error('错误详情:', res.data);
@@ -144,16 +138,18 @@ export default {
                   let errMsg = '请求失败';
                   if (res.statusCode === 401) {
                       errMsg = 'Token 无效或已过期 (401)';
+					  // 清除本地存储的用户信息
+					  uni.removeStorageSync('access_token');
+					  uni.removeStorageSync('userInfo');
+					  // 更新全局状态
+					  getApp().globalData.isLogin = false;
+					  getApp().globalData.userInfo = { username: "未登录" };
+					  getApp().globalData.accessToken = null;
                   } else if (res.statusCode === 404) {
                       errMsg = '接口地址不存在 (404)，请检查 URL';
                   } else if (res.data && res.data.msg) {
                       errMsg = res.data.msg;
                   }
-
-                  uni.showToast({
-                      title: errMsg,
-                      icon: 'none'
-                  });
               }
           },
           fail: (err) => {
@@ -170,6 +166,8 @@ export default {
 			// 从本地存储获取用户信息
 			this.getUserInfoFromStorage();
 			console.log("当前登录状态:", this.isLogin ? "已登录" : "未登录");
+			// 检查jwt是否有效（可选，增加安全性）
+			if (this.isLogin) this.testJwtConnection();
 		},
 		
 		// 从本地存储获取用户信息

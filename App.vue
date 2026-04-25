@@ -7,8 +7,9 @@
 				userid: null,
                 username: null
             },
-			baseUrl: "http://192.168.17.112:5000",
-			accessToken: null
+			baseUrl: "http://192.168.128.112:5000",
+			accessToken: null,
+			deviceList: []
         },
 		onLaunch: function(options) {
 			console.log('App Launch')
@@ -41,21 +42,67 @@
 		justify-content: center;
 		align-items: center;
 	}
+	.navBarBox {
+		width: 100%;
+	}
+	
+	.statusBar {
+		width: 100%;
+	}
+	
+	.navBar {
+		width: 100%;
+		height: 88rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center; /* 保持居中 */
+		position: relative;
+		background-color: #8CA9AD;
+		font-size: 36rpx;
+		font-weight: bold;
+	}
+
+	.escimg{
+		width: 60rpx;
+		height: 60rpx;
+	}
+	
+	.escp {
+		position: absolute;
+		left: 20rpx;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60rpx;
+		height: 60rpx;
+		z-index: 10;
+	}
+	
+	.navBarTitle {
+		color: #FBF2E3;
+		font-size: 36rpx;
+		font-weight: bold;
+		text-align: center;
+		position: absolute; /* 使用绝对定位，相对于.navBar */
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%); /* 垂直居中 */
+		text-align: center;
+		z-index: 1; /* 确保标题在返回按钮后面，但显示在中间 */
+	}
+	
 	.navBarBox .navBar {
 		background-color: #8CA9AD;
-		width: 750rpx;
+		width: 100%;
 		height: 82rpx;
-		padding: 3rpx 50rpx;
-		padding-bottom: 8rpx;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-	}
-	.navBarTitle{
-		color: #FBF2E3;
-		font-size: 36rpx;
-		font-weight: 500;
+		position: relative;
 	}
 	.mainbody{
 		width: 660rpx;
@@ -64,15 +111,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-    .escp{
-        position: absolute;
-        top: 20rpx;
-        left: 15rpx;
-    }
-	.escimg{
-		width: 60rpx;
-		height: 60rpx;
 	}
 	.card-border{
 		border-bottom: 6rpx solid #8CA9AD; /* 下边框 */
