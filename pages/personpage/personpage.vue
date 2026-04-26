@@ -45,7 +45,7 @@
 			<view class="funcItem" @click="toSport()">
 				<text>运动记录</text>
 			</view>
-			<view class="funcItem">
+			<view class="funcItem" @click="toReport()">
 				<text>健康周报</text>
 			</view>
 			<view class="funcItem" @click="toSettings()">
@@ -370,16 +370,19 @@ export default {
 		},
 		toSport(){
 			uni.navigateTo({ url: '/pages/sport/sport' });
-			},
-			toDiet(){
-				uni.navigateTo({ url: '/pages/diet/diet' });
-			},
-			toSettings(){
-				uni.navigateTo({ url: '/pages/settings/settings' });
-			},
-			toAbout(){
-				uni.navigateTo({ url: '/pages/about/about' });
-			},
+		},
+		toReport(){
+			uni.navigateTo({ url: '/pages/report/report' });
+		},
+		toDiet(){
+			uni.navigateTo({ url: '/pages/diet/diet' });
+		},
+		toSettings(){
+			uni.navigateTo({ url: '/pages/settings/settings' });
+		},
+		toAbout(){
+			uni.navigateTo({ url: '/pages/about/about' });
+		},
 		debugshow(){
 			console.log("userInfo:", this.userInfo);
 			console.log("isLogin:", this.isLogin);

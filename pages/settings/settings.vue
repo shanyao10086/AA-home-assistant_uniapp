@@ -200,8 +200,8 @@ export default{
 	
 	button {
 		width: 100%;
+		color: #FBF2E3;
 		background-color: #8CA9AD;
-		color: white;
-		border-radius: 10rpx;
+		border-radius: 20rpx;
 	}
 </style>

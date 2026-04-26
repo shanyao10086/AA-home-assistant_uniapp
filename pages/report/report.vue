@@ -11,13 +11,13 @@
 					<image class="escimg"
 					src="/static/icons/向左.png"></image>
 				</view>
-				<text class="navBarTitle">运动记录</text>
+				<text class="navBarTitle">健康周报</text>
 			</view>
 		</view>
 		
 		
-		<view class="">
-			
+		<view class="bigbutton">
+			<button @click="getReport()">生成周报</button>
 		</view>
 		<view class="footer-space" style="color: #8CA9AD;"></view>
 	</view>
@@ -56,4 +56,15 @@ export default{
 		align-items: center;
 	}
 	
+	.bigbutton {
+		width: 90%;
+		margin: 20rpx auto;
+	}
+	
+	button {
+		width: 100%;
+		color: #FBF2E3;
+		background-color: #8CA9AD;
+		border-radius: 20rpx;
+	}
 </style>
