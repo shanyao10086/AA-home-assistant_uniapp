@@ -17,6 +17,19 @@
 		
 		
 		<view class="funcList">
+			<view @click="toggleExpand()" class="funcItem">
+				<text>后端服务IP配置</text>
+			</view>
+			<view v-if="isExpand" class="funcItem" style="height: 180rpx; margin: 20rpx 0;">
+				<form>
+					<view class="form-item" style="display: flex; flex-direction: column; align-items: flex-start; padding: 20rpx;">
+						<text style="font-size: 30rpx; margin-right: 20rpx;">当前使用的后端服务IP: {{backendIP}}</text>
+						<input type="text" v-model="updateIP" placeholder="请输入要更改的后端服务IP：" style="font-size: 36rpx; font-weight: 300; margin: 20rpx 0; width: 100%;"/>
+						<button @click="updateBackendIP()">修改ip</button>
+					</view>
+				</form>
+
+			</view>
 			<view class="funcItem">
 				<text>网关配置</text>
 			</view>
@@ -39,13 +52,19 @@ export default{
 			// 状态栏高度
 			statusBarHeight: 0,
 			// 导航栏高度
-			navBarHeight: 82+11
+			navBarHeight: 82+11,
+			isExpand: false,
+			backendIP: '',
+			updateIP: ''
 		};
 	},
 	//第一次加载时调用
 	created() {
 		//获取手机状态栏高度
 		this.statusBarHeight = uni.getSystemInfoSync()['statusBarHeight'];
+	},
+	onShow() {
+		this.backendIP = getApp().globalData.baseUrl.split('/')[2] || '';
 	},
 	methods: {
 		// 返回上一页
@@ -54,7 +73,54 @@ export default{
 				delta: 1
 			});
 		},
+		// 切换展开状态
+		toggleExpand() {
+			this.isExpand = !this.isExpand;
+		},
+		// 更新后端服务IP
+		updateBackendIP() {
+			// 确认是否更新IP
+			uni.showModal({
+				title: '确认更新IP',
+				content: '确定要更新后端服务IP吗？',
+				showCancel: true,
+				cancelText: '取消',
+				confirmText: '确认'
+			}).then((res) => {
+				if (res.confirm) {
+					// 检查输入的IP地址	
+					uni.request({
+						url: `http://${this.updateIP}/check_connextion`,
+						method: 'GET',
+						timeout: 5000, // 设置请求超时时间
+						success: (res) => {
+							console.log('测试请求成功:', res);
+						},
+						fail: (err) => {
+							console.error('测试请求失败:', err);
+							showToast('请输入有效的IP地址');
+							return;
+						}
+					});
+					this.backendIP = this.updateIP;
+				}
+				getApp().globalData.baseUrl = `http://${this.backendIP}`;
+				// 存储到本地缓存
+				uni.setStorageSync('baseUrl', getApp().globalData.baseUrl);
 
+				uni.showToast({
+					title: '后端服务IP已更新',
+					icon: 'success'
+				});
+				this.updateIP = '';
+			}).catch((err) => {
+				console.error('更新IP失败:', err);
+				uni.showToast({
+					title: '更新IP失败',
+					icon: 'none'
+				});
+			});
+		},
 		// 注销账号
 		logout(){
 			// 获取当前登录用户信息
@@ -114,7 +180,7 @@ export default{
 						// 跳转到登录页面
 						setTimeout(() => {
 							uni.reLaunch({
-								url: '/pages/login/login'
+								url: '/pages/personpage/personpage'
 							});
 						}, 1500);
 					} else {
@@ -164,7 +230,7 @@ export default{
 			console.log(" 退出登录 ");
 			getApp().globalData.isLogin = false;
 			getApp().globalData.userInfo = { username: "未登录" };
-			uni.navigateTo({ url: '/pages/login/login' });
+			uni.navigateTo({ url: '/pages/personpage/personpage' });
 		}
 		
 	}

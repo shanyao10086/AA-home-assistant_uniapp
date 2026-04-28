@@ -875,7 +875,6 @@ export default {
 
 .section-header {
 	display: flex;
-	border: 1rpx solid red;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20rpx;

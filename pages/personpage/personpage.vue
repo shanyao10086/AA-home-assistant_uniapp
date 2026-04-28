@@ -155,7 +155,7 @@ export default {
           fail: (err) => {
               console.error('❌ 网络请求失败:', err);
               uni.showToast({
-                  title: '网络错误或服务器未启动',
+                  title: '网络错误或服务器未启动,请检查连接或前往设置页面更新后端服务ip',
                   icon: 'none'
               });
           }

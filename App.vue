@@ -7,20 +7,24 @@
 				userid: null,
                 username: null
             },
-			baseUrl: "http://192.168.128.112:5000",
+			baseUrl: '',
 			accessToken: null,
 			deviceList: []
         },
 		onLaunch: function(options) {
-			console.log('App Launch')
-			console.log('应用启动路径：', options.path)
+			console.log('App Launch');
+			console.log('应用启动路径：', options.path);
 		},
 		onShow: function(options) {
-			console.log('App Show')
-			console.log('应用启动路径：', options.path)
+			console.log('App Show');
+			console.log('应用启动路径：', options.path);
+			this.globalData.baseUrl = uni.getStorageSync('baseUrl') || '';
+			this.globalData.accessToken = uni.getStorageSync('accessToken') || null;
+			this.globalData.deviceList = uni.getStorageSync('deviceList') || [];
+			console.log('当前后端服务IP:', this.globalData.baseUrl);
 		},
 		onHide: function() {
-			console.log('App Hide')
+			console.log('App Hide');
 		},
 		methods:{
 			
