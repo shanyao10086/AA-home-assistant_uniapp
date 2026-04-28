@@ -79,7 +79,6 @@
 					<view class="devName">
 						<text>{{ item.device_name }}</text>
 					</view>
-					<image class="expand-icon" :class="{ expanded: expandedDeviceId === item.id }" src="/static/icons/向下.png"></image>
 				</view>
 				<view class="devDetail" v-if="expandedDeviceId === item.id">
 					<view class="detail-row">
